@@ -45,8 +45,11 @@ services:
         max-file: "1"
 
   searxng:
+    user: "1000:1000"
+    user: "1000:1000"
     container_name: searxng
     image: docker.io/searxng/searxng:latest
+    user: "1000:1000"
     user: "1000:1000"
     restart: unless-stopped
     networks:
@@ -55,6 +58,8 @@ services:
       - "127.0.0.1:8080:8080"
     volumes:
       - ./searxng:/etc/searxng:rw
+    user: "1000:1000"
+    user: "1000:1000"
     environment:
       - SEARXNG_BASE_URL=https://${SEARXNG_HOSTNAME:-localhost}/
       - UWSGI_WORKERS=${SEARXNG_UWSGI_WORKERS:-4}
@@ -73,6 +78,8 @@ services:
 
 networks:
   searxng:
+    user: "1000:1000"
+    user: "1000:1000"
 
 volumes:
   caddy-data:
